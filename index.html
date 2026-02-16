@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jennifer Sartor - Product Marketing Strategy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-text: #1a1a1a;
+            --secondary-text: #666666;
+            --accent: #2563eb;
+            --border: #e5e5e5;
+            --background: #ffffff;
+            --subtle-bg: #fafafa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--primary-text);
+            background: var(--background);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-text);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 6rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: 4rem;
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+
+        .hero h1 strong {
+            font-weight: 600;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            color: var(--primary-text);
+            max-width: 750px;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--secondary-text);
+            max-width: 700px;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-text);
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-text);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--primary-text);
+        }
+
+        /* Impact Stats */
+        .impact-stats {
+            padding: 4rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Sora', sans-serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--secondary-text);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Value Prop Section */
+        .value-prop {
+            padding: 6rem 0;
+            background: var(--subtle-bg);
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .value-column h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .value-list {
+            list-style: none;
+        }
+
+        .value-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--secondary-text);
+            line-height: 1.7;
+        }
+
+        .value-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--secondary-text);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            max-width: 700px;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .expertise-item h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .expertise-item p {
+            color: var(--secondary-text);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-bullets {
+            list-style: none;
+            padding: 0;
+        }
+
+        .expertise-bullets li {
+            color: var(--secondary-text);
+            font-size: 0.95rem;
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .expertise-bullets li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 6rem 0;
+            background: var(--subtle-bg);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            border: 1px solid var(--border);
+            background: white;
+            transition: all 0.3s;
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out backwards;
+        }
+
+        .portfolio-item:hover {
+            border-color: var(--primary-text);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .portfolio-content {
+            padding: 2.5rem;
+        }
+
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .portfolio-context {
+            font-size: 0.85rem;
+            color: var(--secondary-text);
+            font-style: italic;
+        }
+
+        .portfolio-item h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .portfolio-description {
+            color: var(--secondary-text);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-impact {
+            background: var(--subtle-bg);
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .portfolio-impact-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--secondary-text);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .portfolio-impact-text {
+            color: var(--primary-text);
+            font-weight: 500;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            background: var(--subtle-bg);
+            color: var(--secondary-text);
+            font-size: 0.85rem;
+            border: 1px solid var(--border);
+        }
+
+        /* Approach Section */
+        .approach {
+            padding: 6rem 0;
+        }
+
+        .approach-content {
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+
+        .approach-step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: slideUp 0.6s ease-out forwards;
+        }
+
+        .approach-step:nth-child(1) { animation-delay: 0.1s; }
+        .approach-step:nth-child(2) { animation-delay: 0.2s; }
+        .approach-step:nth-child(3) { animation-delay: 0.3s; }
+        .approach-step:nth-child(4) { animation-delay: 0.4s; }
+
+        .step-number {
+            font-family: 'Sora', sans-serif;
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--border);
+            letter-spacing: -0.02em;
+        }
+
+        .step-content h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .step-content p {
+            color: var(--secondary-text);
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: var(--subtle-bg);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .contact p {
+            color: var(--secondary-text);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .contact-email {
+            display: inline-block;
+            font-size: 1.25rem;
+            color: var(--primary-text);
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-text);
+            padding-bottom: 0.25rem;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .contact-email:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Portfolio grid stagger animation */
+        .portfolio-item:nth-child(1) { animation-delay: 0.1s; }
+        .portfolio-item:nth-child(2) { animation-delay: 0.2s; }
+        .portfolio-item:nth-child(3) { animation-delay: 0.3s; }
+        .portfolio-item:nth-child(4) { animation-delay: 0.4s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .value-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .approach-step {
+                grid-template-columns: 60px 1fr;
+                gap: 1.5rem;
+            }
+
+            .step-number {
+                font-size: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">Jennifer Sartor</div>
+                <ul class="nav-links">
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#approach">Approach</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>From <strong>point solution</strong> to <strong>platform leader</strong></h1>
+            <p class="subtitle">Strategic product marketing executive who builds the narratives, enablement, and go-to-market infrastructure that power high-growth technology companies.</p>
+            <p>I partner with growth-stage tech companies at critical inflection points—repositioning point solutions as platforms, executing major launches, and building the product marketing function from the ground up. Equal parts strategist and operator.</p>
+            <a href="#contact" class="cta-button">Let's Talk Strategy</a>
+        </div>
+    </section>
+
+    <section class="impact-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">$60M → $250M</div>
+                    <div class="stat-label">Revenue growth at Virgin Pulse through hyper-growth phase</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3 PE Exits</div>
+                    <div class="stat-label">Led product marketing through successful acquisitions by Vista, Susquehanna, and others</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Platform Leader</div>
+                    <div class="stat-label">Repositioned Poppulo from point solution to enterprise platform, driving successful exit</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="value-prop">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Why Companies Hire Me</div>
+                <h2 class="section-title">Strategic vision with hands-on execution</h2>
+            </div>
+            <div class="value-grid">
+                <div class="value-column">
+                    <h3>Strategic Leadership</h3>
+                    <ul class="value-list">
+                        <li>Advise boards and C-suite on market dynamics and positioning strategy</li>
+                        <li>Lead integration workstreams for mergers and acquisitions</li>
+                        <li>Build product marketing organizations from scratch</li>
+                        <li>Navigate companies through PE ownership transitions</li>
+                        <li>Reposition companies at critical growth inflection points</li>
+                    </ul>
+                </div>
+                <div class="value-column">
+                    <h3>Tactical Execution</h3>
+                    <ul class="value-list">
+                        <li>Craft differentiated messaging and narrative frameworks</li>
+                        <li>Build competitive intelligence programs and battlecards</li>
+                        <li>Execute repeatable go-to-market launch processes</li>
+                        <li>Enable sales teams with playbooks, pitches, and tools</li>
+                        <li>Develop thought leadership and content strategies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="expertise">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Core Capabilities</div>
+                <h2 class="section-title">Full-spectrum product marketing expertise</h2>
+            </div>
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <h3>Platform Positioning & Messaging</h3>
+                    <p>Transform how the market perceives your offering through strategic repositioning and compelling narrative development.</p>
+                    <ul class="expertise-bullets">
+                        <li>Point solution to platform repositioning</li>
+                        <li>Message architecture and frameworks</li>
+                        <li>Value proposition development</li>
+                        <li>Analyst relations strategy</li>
+                    </ul>
+                </div>
+                <div class="expertise-item">
+                    <h3>Go-to-Market Strategy & Execution</h3>
+                    <p>Build repeatable launch processes that align cross-functional teams and deliver results at scale.</p>
+                    <ul class="expertise-bullets">
+                        <li>Product launch orchestration</li>
+                        <li>GTM playbook development</li>
+                        <li>Multi-channel campaign strategy</li>
+                        <li>Account-based marketing (ABM)</li>
+                    </ul>
+                </div>
+                <div class="expertise-item">
+                    <h3>Sales Enablement & Competitive Intelligence</h3>
+                    <p>Arm revenue teams with the positioning, tools, and training to win in competitive markets.</p>
+                    <ul class="expertise-bullets">
+                        <li>Battlecards and competitive programs</li>
+                        <li>Sales playbooks and pitch development</li>
+                        <li>Win/loss analysis programs</li>
+                        <li>Revenue team training and coaching</li>
+                    </ul>
+                </div>
+                <div class="expertise-item">
+                    <h3>Team Building & Change Management</h3>
+                    <p>Build high-performing product marketing organizations and navigate companies through transformation.</p>
+                    <ul class="expertise-bullets">
+                        <li>Product marketing team development</li>
+                        <li>Cross-functional leadership</li>
+                        <li>M&A integration expertise</li>
+                        <li>Organizational change agent</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="work">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Selected Work</div>
+                <h2 class="section-title">Strategic initiatives that drove measurable results</h2>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-content">
+                        <div class="portfolio-header">
+                            <div>
+                                <div class="portfolio-category">Platform Repositioning</div>
+                                <h3>Enterprise Platform Transformation</h3>
+                            </div>
+                            <div class="portfolio-context">FWI | Poppulo</div>
+                        </div>
+                        <p class="portfolio-description">Led complete repositioning of Poppulo from employee communications point solution to integrated enterprise platform spanning communications, digital signage, and workspace management. Developed comprehensive messaging architecture, narrative framework, and go-to-market strategy across merged entity of FWI, Poppulo, and SmartSpace Global.</p>
+                        <div class="portfolio-impact">
+                            <div class="portfolio-impact-label">Business Impact</div>
+                            <div class="portfolio-impact-text">Successful exit by Susquehanna Growth Equity and acquisition by Vista Equity Partners</div>
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="tag">Message Architecture</span>
+                            <span class="tag">M&A Integration</span>
+                            <span class="tag">Platform Positioning</span>
+                            <span class="tag">Board Advisory</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-content">
+                        <div class="portfolio-header">
+                            <div>
+                                <div class="portfolio-category">Account-Based Marketing</div>
+                                <h3>ABM Strategy & Execution</h3>
+                            </div>
+                            <div class="portfolio-context">Virgin Pulse</div>
+                        </div>
+                        <p class="portfolio-description">Pioneered company's first account-based marketing program from strategy through execution. Defined market segmentation, built dedicated cross-functional team, designed integrated campaigns across multiple channels, and established measurement framework.</p>
+                        <div class="portfolio-impact">
+                            <div class="portfolio-impact-label">Business Impact</div>
+                            <div class="portfolio-impact-text">Generated $6M in qualified pipeline within 6 months</div>
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="tag">ABM Strategy</span>
+                            <span class="tag">Pipeline Generation</span>
+                            <span class="tag">Team Building</span>
+                            <span class="tag">Campaign Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-content">
+                        <div class="portfolio-header">
+                            <div>
+                                <div class="portfolio-category">Sales Enablement</div>
+                                <h3>Competitive Intelligence Program</h3>
+                            </div>
+                            <div class="portfolio-context">Virgin Pulse</div>
+                        </div>
+                        <p class="portfolio-description">Established enterprise-wide competitive intelligence program from the ground up, including battlecard framework, competitive tracking system, regular enablement cadence, and ongoing training program for 100+ person sales and customer success organization.</p>
+                        <div class="portfolio-impact">
+                            <div class="portfolio-impact-label">Business Impact</div>
+                            <div class="portfolio-impact-text">Enabled sales team through 6 competitor acquisitions and numerous market shifts</div>
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="tag">Battlecards</span>
+                            <span class="tag">Competitive Analysis</span>
+                            <span class="tag">Sales Training</span>
+                            <span class="tag">Enablement Tools</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-content">
+                        <div class="portfolio-header">
+                            <div>
+                                <div class="portfolio-category">Go-to-Market Process</div>
+                                <h3>Repeatable Product Launch Framework</h3>
+                            </div>
+                            <div class="portfolio-context">Virgin Pulse & Workhuman</div>
+                        </div>
+                        <p class="portfolio-description">Designed and implemented scalable go-to-market launch process orchestrating 15+ cross-functional stakeholders. Created launch templates, playbooks, and toolkits enabling consistent execution across monthly and quarterly product releases. Executed 20+ major launches across multiple companies.</p>
+                        <div class="portfolio-impact">
+                            <div class="portfolio-impact-label">Business Impact</div>
+                            <div class="portfolio-impact-text">Transformed ad-hoc launches into repeatable system supporting hyper-growth</div>
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="tag">Launch Strategy</span>
+                            <span class="tag">GTM Playbooks</span>
+                            <span class="tag">Process Design</span>
+                            <span class="tag">Cross-functional Leadership</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="approach" id="approach">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">How I Work</div>
+                <h2 class="section-title">From strategy to execution: a proven framework</h2>
+            </div>
+            <div class="approach-content">
+                <div class="approach-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Strategic Assessment</h3>
+                        <p>Immerse in your business context—competitive landscape, customer insights, product roadmap, and organizational dynamics. Identify the highest-leverage opportunities for positioning and go-to-market impact.</p>
+                    </div>
+                </div>
+                <div class="approach-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Messaging & Positioning Architecture</h3>
+                        <p>Build the strategic narrative foundation—positioning frameworks, value propositions, message hierarchies, and proof points. Create the messaging infrastructure that will guide all market-facing communications.</p>
+                    </div>
+                </div>
+                <div class="approach-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Tactical Execution & Enablement</h3>
+                        <p>Deliver tangible assets that bring strategy to life—pitch decks, battlecards, playbooks, launch plans, and collateral. Build the tools your teams need to execute effectively in market.</p>
+                    </div>
+                </div>
+                <div class="approach-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Optimization & Scale</h3>
+                        <p>Establish measurement frameworks, gather market feedback, refine based on performance data. Build repeatable processes that enable your team to scale execution as the business grows.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Let's discuss your go-to-market strategy</h2>
+                <p>Whether you're repositioning for a new market opportunity, navigating an acquisition, or building product marketing capability from scratch—let's explore how we can work together.</p>
+                <a href="mailto:jensartor@gmail.com" class="contact-email">jensartor@gmail.com</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Jennifer Sartor. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe portfolio items
+        document.querySelectorAll('.portfolio-item, .approach-step').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
